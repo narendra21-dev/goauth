@@ -4,18 +4,18 @@ import { sendPasswordResetEmail, signInWithEmailAndPassword } from 'firebase/aut
 import { auth } from '../firebaseConfig';
 import { router } from 'expo-router';
 
-export default function inedx() {
+export default function index() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
-    const [isSignin, setisSignin] = useState(false);
+    // const [isSignin, setisSignin] = useState(false);
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        if (isSignin) {
-            router.push('../home');
-        }
-    }, [isSignin]);
+    //     if (isSignin == true) {
+    //         router.push('/home');
+    //     }
+    // }, [isSignin]);
 
 
 
@@ -27,7 +27,7 @@ export default function inedx() {
 
             if (user.emailVerified) {
                 router.push('../home');
-                setisSignin(true);
+                // setisSignin(true);
             } else {
                 alert('Please verify your email before logging in.');
             }
@@ -40,7 +40,7 @@ export default function inedx() {
 
     const handlePasswordReset = async () => {
         try {
-            const userCredential = await sendPasswordResetEmail(auth, email);
+            await sendPasswordResetEmail(auth, email);
             alert('Rest email password sent. Please check your inbox.')
         } catch (err) {
             console.error(err)

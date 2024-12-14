@@ -49,6 +49,12 @@ export default function registerScreen() {
 
             <Button title="Forget Password" onPress={handlePasswordReset} />
             <Button title="Register" onPress={handleRegister} />
+            <Button title="Log" onPress={() => {
+                router.push('../index')
+            }} />
+            <Button title="Log1" onPress={() => {
+                router.push('/')
+            }} />
         </View>
     );
 }
